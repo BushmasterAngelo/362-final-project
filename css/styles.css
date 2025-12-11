@@ -1,41 +1,53 @@
 /*
 |--------------------------------------------------------------------------
-| 5. IMAGE AND MEDIA STYLING
+| 5. IMAGE AND MEDIA STYLING (Updated)
 |--------------------------------------------------------------------------
 */
 
-/* Global rule: Makes sure all images are responsive and never stretch beyond their container */
+/* Global rule: Ensures all images are responsive and don't overflow the screen */
 img {
     max-width: 100%; /* Ensures images scale down on smaller screens */
     height: auto;    /* Maintains aspect ratio */
-    display: block;  /* Centers images easily if needed */
+    display: block;  /* Centers block-level images easily */
     margin: 10px auto;
 }
 
-/* Specific: Styling the two faction promo images on the Home Page (index.html) */
-.get started {
-    text-align: center; /* Center the section title and images */
-    display: flex;      /* Enables flexible arrangement for children (images) */
-    justify-content: space-around; /* Distributes space around the images */
-    align-items: flex-start;
-    flex-wrap: wrap; /* Allows images to stack on very small screens */
-    gap: 20px;       /* Adds spacing between the images */
-}
-
-/* Specific: Targets the images *inside* the .get.started section */
-.get.started img {
-    /* Each image will take up slightly less than half the container width,
-       allowing two to sit side-by-side with a gap. */
-    width: 45%; 
-    border: 2px solid var(--color-accent-yellow); /* Add a border for a tech/game feel */
-}
-
-/* Specific: Targets the YouTube iFrame (from gallery.html) */
-.bar.trailer iframe {
-    /* Ensures the video player is also responsive and contained */
-    max-width: 100%;
+/* 1. index.html - Main Logo Size */
+.main-logo {
+    /* Sets a reasonable max size for the main logo, keeping it centered */
+    max-width: 300px; 
     margin: 20px auto;
-    /* Optional: You can set a fixed maximum width for large screens if 1280px is too big */
+}
+
+/* 1. index.html - Faction Promo Images (Armada/Cortex) */
+.get.started {
+    /* Ensures side-by-side layout, allowing the images to take half the space */
+    display: flex;      
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+    gap: 20px;       
+}
+
+.get.started img {
+    /* Each image takes slightly less than half the container */
+    width: 45%; 
+    border: 2px solid var(--color-accent-yellow); 
+}
+
+/* 2. gallery.html - Units Picture */
+.units.picture img {
+    /* Keeps the gallery unit image centered and prevents it from being excessively wide */
+    max-width: 800px; 
+    margin: 20px auto;
+    border: 1px solid var(--color-border-grey);
+}
+
+/* 2. gallery.html - YouTube iFrame/Trailer */
+.bar.trailer iframe {
+    /* Ensures the video player is responsive and contained, setting a fixed height */
+    max-width: 100%;
     width: 100%; 
-    height: 600px; /* Adjust height as needed for aspect ratio */
+    height: 600px; /* Adjust this height (or use a responsive video container) */
+    margin: 20px auto;
 }
