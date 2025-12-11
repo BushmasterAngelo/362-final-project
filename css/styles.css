@@ -71,6 +71,14 @@ body > section {
     height: 40px;
 }
 
+/* Specific: Color override for the main welcome message on index.html */
+.key.messasge h2 {
+    color: var(--color-text-light); /* Sets the color to white/light gray */
+    font-size: 2em;
+    text-align: center;
+    padding: 20px 0;
+}
+
 /*
 |--------------------------------------------------------------------------
 | 3. NAVIGATION (Consistent Top and Bottom)
