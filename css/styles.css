@@ -1,149 +1,41 @@
 /*
 |--------------------------------------------------------------------------
-| 1. GLOBAL RESET & TYPOGRAPHY
-|--------------------------------------------------------------------------
-*/
-/* The reset.css file should handle base styles, but we'll set defaults here */
-
-:root {
-    /* BAR-Inspired Color Palette */
-    --color-background-dark: #121212; /* Very dark background */
-    --color-text-light: #f0f0f0;    /* High-contrast text */
-    --color-accent-yellow: #FFD700; /* Bright gold/yellow for emphasis (like BAR's buttons) */
-    --color-accent-blue: #00BFFF;   /* Bright blue for links/highlights */
-    --color-border-grey: #333333;   /* Subtle divider lines */
-}
-
-body {
-    font-family: Arial, sans-serif; /* Clean, legible sans-serif font */
-    background-color: var(--color-background-dark);
-    color: var(--color-text-light);
-    line-height: 1.6; /* Good readability */
-    margin: 0;
-    padding: 0;
-}
-
-/* Headings: Use a strong, technical style */
-h1, h2, h3 {
-    font-family: 'Arial Black', sans-serif;
-    color: var(--color-accent-yellow);
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-}
-
-h1 { font-size: 2.5em; text-align: center; }
-h2 { font-size: 1.8em; }
-
-/* Anchor Links: Use the bright blue accent color */
-a {
-    color: var(--color-accent-blue);
-    text-decoration: none; /* Remove underline */
-}
-
-a:hover {
-    color: var(--color-text-light); /* Highlight on hover */
-    text-decoration: underline;
-}
-
-/*
-|--------------------------------------------------------------------------
-| 2. LAYOUT AND HEADER (Consistent Structure)
+| 5. IMAGE AND MEDIA STYLING
 |--------------------------------------------------------------------------
 */
 
-/* Main content structure: Centers and limits width for better readability (like a wiki) */
-body > section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    border-top: 1px solid var(--color-border-grey); /* Visual separation between sections */
+/* Global rule: Makes sure all images are responsive and never stretch beyond their container */
+img {
+    max-width: 100%; /* Ensures images scale down on smaller screens */
+    height: auto;    /* Maintains aspect ratio */
+    display: block;  /* Centers images easily if needed */
+    margin: 10px auto;
 }
 
-/* Logo Section (heroimage) */
-.heroimage {
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--color-border-grey);
+/* Specific: Styling the two faction promo images on the Home Page (index.html) */
+.get started {
+    text-align: center; /* Center the section title and images */
+    display: flex;      /* Enables flexible arrangement for children (images) */
+    justify-content: space-around; /* Distributes space around the images */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allows images to stack on very small screens */
+    gap: 20px;       /* Adds spacing between the images */
 }
 
-.heroimage img {
-    width: 40px; /* Small, minimized logo */
-    height: 40px;
+/* Specific: Targets the images *inside* the .get.started section */
+.get.started img {
+    /* Each image will take up slightly less than half the container width,
+       allowing two to sit side-by-side with a gap. */
+    width: 45%; 
+    border: 2px solid var(--color-accent-yellow); /* Add a border for a tech/game feel */
 }
 
-/*
-|--------------------------------------------------------------------------
-| 3. NAVIGATION (Consistent Top and Bottom)
-|--------------------------------------------------------------------------
-*/
-
-.top.navigation, .bottom.navigation {
-    background-color: #0d0d0d; /* Slightly darker than background for contrast */
-    padding: 0;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Make links horizontal */
-    justify-content: space-around; /* Space them out evenly */
-}
-
-nav li a {
-    display: block;
-    padding: 10px 15px;
-    color: var(--color-text-light);
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-nav li a:hover {
-    background-color: #2a2a2a; /* Subtle background change on hover */
-    color: var(--color-accent-yellow);
-}
-
-/*
-|--------------------------------------------------------------------------
-| 4. FORM STYLING (For contacts.html)
-|--------------------------------------------------------------------------
-*/
-
-/* Style the form for a clean, professional look */
-.editor.sign-up form div {
-    margin-bottom: 15px;
-}
-
-.editor.sign-up label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.editor.sign-up input[type="email"],
-.editor.sign-up input[type="password"] {
-    width: 90%;
-    padding: 10px;
-    background-color: #222;
-    border: 1px solid var(--color-border-grey);
-    color: var(--color-text-light);
-    border-radius: 3px;
-}
-
-.editor.sign-up button[type="submit"] {
-    background-color: var(--color-accent-yellow); /* Use the main accent color */
-    color: var(--color-background-dark); /* Dark text on bright button */
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s;
-}
-
-.editor.sign-up button[type="submit"]:hover {
-    background-color: #FFA500; /* Slightly darker orange/gold on hover */
+/* Specific: Targets the YouTube iFrame (from gallery.html) */
+.bar.trailer iframe {
+    /* Ensures the video player is also responsive and contained */
+    max-width: 100%;
+    margin: 20px auto;
+    /* Optional: You can set a fixed maximum width for large screens if 1280px is too big */
+    width: 100%; 
+    height: 600px; /* Adjust height as needed for aspect ratio */
 }
